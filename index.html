@@ -173,7 +173,7 @@
     </section>
 
     <section class="stats reveal reveal--3" aria-label="Journey stats">
-      <div class="stat"><span class="stat__value">01</span><span class="stat__label">Techniker</span></div>
+      <div class="stat"><span class="stat__value">01</span><span class="stat__label">Fokus</span></div>
       <div class="stat"><span class="stat__value">∞</span><span class="stat__label">Möglichkeiten</span></div>
       <div class="stat"><span class="stat__value">911</span><span class="stat__label">Destination</span></div>
     </section>
@@ -181,7 +181,7 @@
     <section class="message reveal reveal--4">
       <div class="label">A note for the road</div>
       <h2>Dein Weg. Deine Kurve.</h2>
-      <p>Dieser Schlüssel gehört heute noch zu keinem Porsche. Aber er soll dich daran erinnern, was vor dir liegt: deinen Weg als Techniker, deine Karriere, neue Orte und all die Reisen, die noch auf dich warten.</p>
+      <p>Dieser Schlüssel gehört heute noch zu keinem Porsche. Aber er soll dich daran erinnern, was vor dir liegt: deine Karriere, neue Orte und all die Reisen, die noch auf dich warten.</p>
       <p>Irgendwann steht dein eigener 911 GT3 RS vor deiner Tür. Bis dahin: Bleib neugierig, tritt weiter aufs Gas und verliere nie aus den Augen, wo du hinwillst.</p>
       <p>One day. Keep going.</p>
       <a class="cta" id="startButton" href="birthday.html">START YOUR JOURNEY <span aria-hidden="true">↗</span></a>
@@ -196,7 +196,6 @@
       const gauge = document.querySelector('#gauge');
       const rpm = document.querySelector('#rpm');
       const speed = document.querySelector('#speed');
-      const startButton = document.querySelector('#startButton');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let currentRpm = 0;
       let driveTimer;
@@ -249,17 +248,6 @@
         animateRpm(1.5, 650).then(startDriving);
       }, reduceMotion ? 80 : 2350);
 
-      startButton.addEventListener('click', async (event) => {
-        event.preventDefault();
-        document.querySelector('.message').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
-        startButton.textContent = 'Journey initiated ✓';
-        startButton.setAttribute('aria-label', 'Journey initiated');
-        window.clearTimeout(driveTimer);
-        await animateRpm(9.1, 740);
-        await new Promise((resolve) => window.setTimeout(resolve, 950));
-        await animateRpm(2.2, 1000);
-        window.location.href = startButton.href;
-      });
     })();
   </script>
 </body>
