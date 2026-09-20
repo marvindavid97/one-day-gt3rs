@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07090a">
+  <meta name="description" content="One day. Für Enrique — eine kleine Erinnerung an Technik, Karriere, Reisen und den eigenen 911 GT3 RS.">
+  <title>ONE DAY — GT3 RS</title>
+  <style>
+    :root {
+      --ink: #f3f4ef;
+      --muted: #929a99;
+      --soft: #1b2324;
+      --acid: #d8ff32;
+      --acid-dark: #8ea91e;
+      --red: #ff4c37;
+      --bg: #07090a;
+      --card: rgba(17, 23, 24, .76);
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); }
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100svh;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% 22%, rgba(216,255,50,.08), transparent 28rem),
+        linear-gradient(160deg, #07090a 0%, #0c1112 52%, #050606 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      content: "";
+      opacity: .22;
+      background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(transparent, black 20%, black 75%, transparent);
+    }
+    button { font: inherit; }
+    .boot {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      background: #050606;
+      transition: opacity .7s ease, visibility .7s ease;
+    }
+    .boot.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .boot__inner { width: min(100%, 26rem); text-align: center; }
+    .boot__eyebrow, .eyebrow, .meta, .label {
+      color: var(--muted);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    .boot__eyebrow { margin-bottom: 1.15rem; }
+    .boot__title { margin: 0; font-size: clamp(2.35rem, 11vw, 4rem); letter-spacing: -.06em; }
+    .boot__title span { color: var(--acid); }
+    .boot__line { height: 2px; margin-top: 2rem; overflow: hidden; background: #202626; }
+    .boot__line::after { display: block; width: 100%; height: 100%; content: ""; background: var(--acid); transform-origin: left; animation: load 2.2s cubic-bezier(.22,.8,.35,1) forwards; }
+    .boot__hint { margin-top: .9rem; color: #66706f; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+    @keyframes load { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    main { position: relative; z-index: 1; width: min(100%, 42rem); margin: 0 auto; padding: max(1.5rem, env(safe-area-inset-top)) 1.25rem max(3rem, env(safe-area-inset-bottom)); }
+    .topbar { display: flex; align-items: center; justify-content: space-between; padding-top: .4rem; }
+    .topbar__mark { display: flex; align-items: center; gap: .65rem; color: var(--acid); font-size: .76rem; font-weight: 800; letter-spacing: .16em; }
+    .topbar__mark::before { width: .48rem; height: .48rem; content: ""; border-radius: 50%; background: var(--acid); box-shadow: 0 0 1rem var(--acid); }
+    .topbar__index { color: #596262; font-size: .68rem; letter-spacing: .18em; }
+    .hero { padding: 4.5rem 0 0; }
+    .eyebrow { color: var(--acid); }
+    h1 { margin: .9rem 0 0; font-size: clamp(4.5rem, 19vw, 8.5rem); line-height: .79; letter-spacing: -.1em; }
+    h1 span { display: block; color: #6f7978; font-weight: 300; }
+    .hero__copy { max-width: 31rem; margin: 2rem 0 0; color: #bcc3c0; font-size: 1.03rem; line-height: 1.6; }
+    .hero__copy strong { color: var(--ink); font-weight: 600; }
+    .gauge-wrap { display: grid; place-items: center; padding: 3.5rem 0 3rem; }
+    .gauge { position: relative; width: min(78vw, 20rem); aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: conic-gradient(from 220deg, var(--acid) 0deg var(--progress, 0deg), #293332 var(--progress, 0deg) 205deg, transparent 205deg 360deg); box-shadow: 0 0 0 1px rgba(216,255,50,.12), 0 0 4rem rgba(216,255,50,.08); transition: background 1.7s cubic-bezier(.22,.8,.35,1); }
+    .gauge::before { position: absolute; inset: .48rem; content: ""; border-radius: inherit; background: var(--bg); }
+    .gauge::after { position: absolute; inset: 1.1rem; content: ""; border: 1px solid rgba(255,255,255,.08); border-radius: inherit; }
+    .gauge__inner { position: relative; z-index: 1; text-align: center; }
+    .gauge__value { font-variant-numeric: tabular-nums; font-size: clamp(3.8rem, 16vw, 6rem); font-weight: 800; line-height: .9; letter-spacing: -.08em; }
+    .gauge__unit { margin-top: .75rem; color: var(--muted); font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    .gauge__ticks { position: absolute; inset: .8rem; z-index: 2; border-radius: 50%; pointer-events: none; background: repeating-conic-gradient(from 220deg, rgba(255,255,255,.72) 0 1deg, transparent 1deg 8deg); mask: radial-gradient(transparent 0 78%, #000 79% 81%, transparent 82%); }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
+    .stat { padding: .95rem .8rem; border: 1px solid rgba(255,255,255,.09); background: var(--card); }
+    .stat__value { display: block; margin-bottom: .35rem; color: var(--acid); font-size: 1.05rem; font-weight: 800; letter-spacing: -.03em; }
+    .stat__label { color: var(--muted); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; }
+    .message { position: relative; margin-top: 4rem; padding: 1.5rem; border: 1px solid rgba(216,255,50,.2); background: linear-gradient(135deg, rgba(216,255,50,.09), rgba(255,255,255,.025)); }
+    .message::before { position: absolute; top: -1px; left: -1px; width: 3.5rem; height: 2px; content: ""; background: var(--acid); }
+    .message h2 { margin: .75rem 0 1.1rem; font-size: 1.8rem; letter-spacing: -.06em; }
+    .message p { margin: .8rem 0; color: #c0c6c2; line-height: 1.65; }
+    .message p:last-child { margin-bottom: 0; color: var(--ink); font-weight: 650; }
+    .cta { width: 100%; margin-top: 1.2rem; padding: 1.1rem 1.2rem; border: 0; color: #101300; background: var(--acid); cursor: pointer; font-size: .78rem; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; transition: transform .2s ease, box-shadow .2s ease; }
+    .cta:hover, .cta:focus-visible { transform: translateY(-2px); box-shadow: 0 .8rem 2rem rgba(216,255,50,.18); outline: none; }
+    .footer { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3.5rem; color: #596262; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; }
+    .footer span:last-child { color: var(--acid-dark); text-align: right; }
+    .reveal { opacity: 0; transform: translateY(1rem); animation: reveal .8s ease forwards; }
+    .reveal--2 { animation-delay: .15s; } .reveal--3 { animation-delay: .3s; } .reveal--4 { animation-delay: .45s; }
+    @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+    @media (min-width: 640px) { main { padding-inline: 2rem; } .hero { padding-top: 6rem; } .message { padding: 2rem; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <section class="boot" id="boot" aria-label="Startsequenz">
+    <div class="boot__inner">
+      <div class="boot__eyebrow">NFC signal confirmed</div>
+      <h2 class="boot__title">KEY <span>DETECTED</span></h2>
+      <div class="boot__line" aria-hidden="true"></div>
+      <div class="boot__hint">initialising your next chapter</div>
+    </div>
+  </section>
+
+  <main>
+    <header class="topbar reveal">
+      <div class="topbar__mark">ONE DAY</div>
+      <div class="topbar__index">ENQ / 001</div>
+    </header>
+
+    <section class="hero reveal reveal--2">
+      <div class="eyebrow">For Enrique</div>
+      <h1>GT3 <span>RS.</span></h1>
+      <p class="hero__copy">Manche Träume beginnen nicht mit einem Motorstart. Sie beginnen mit dem Moment, in dem man sich entscheidet, <strong>weiterzugehen</strong>.</p>
+    </section>
+
+    <section class="gauge-wrap reveal reveal--3" aria-label="Drehzahlmesser">
+      <div class="gauge" id="gauge">
+        <div class="gauge__ticks" aria-hidden="true"></div>
+        <div class="gauge__inner"><div class="gauge__value" id="rpm">0</div><div class="gauge__unit">RPM × 1000</div></div>
+      </div>
+    </section>
+
+    <section class="stats reveal reveal--3" aria-label="Journey stats">
+      <div class="stat"><span class="stat__value">01</span><span class="stat__label">Techniker</span></div>
+      <div class="stat"><span class="stat__value">∞</span><span class="stat__label">Möglichkeiten</span></div>
+      <div class="stat"><span class="stat__value">911</span><span class="stat__label">Destination</span></div>
+    </section>
+
+    <section class="message reveal reveal--4">
+      <div class="label">A note for the road</div>
+      <h2>Dein Weg. Deine Kurve.</h2>
+      <p>Dieser Schlüssel gehört heute noch zu keinem Porsche. Aber er soll dich daran erinnern, was vor dir liegt: deinen Weg als Techniker, deine Karriere, neue Orte und all die Reisen, die noch auf dich warten.</p>
+      <p>Irgendwann steht dein eigener 911 GT3 RS vor deiner Tür. Bis dahin: Bleib neugierig, tritt weiter aufs Gas und verliere nie aus den Augen, wo du hinwillst.</p>
+      <p>One day. Keep going.</p>
+      <button class="cta" id="startButton" type="button">START YOUR JOURNEY <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <footer class="footer"><span>Made for the next chapter</span><span>no limits / just direction</span></footer>
+  </main>
+
+  <script>
+    (() => {
+      const boot = document.querySelector('#boot');
+      const gauge = document.querySelector('#gauge');
+      const rpm = document.querySelector('#rpm');
+      const startButton = document.querySelector('#startButton');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const animateRpm = (target = 9.0) => {
+        const duration = reduceMotion ? 0 : 1500;
+        const start = performance.now();
+        const tick = (time) => {
+          const progress = duration ? Math.min((time - start) / duration, 1) : 1;
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = target * eased;
+          rpm.textContent = value.toFixed(1);
+          gauge.style.setProperty('--progress', `${205 * eased}deg`);
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+
+      window.setTimeout(() => {
+        boot.classList.add('is-done');
+        animateRpm();
+      }, reduceMotion ? 80 : 2350);
+
+      startButton.addEventListener('click', () => {
+        document.querySelector('.message').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+        startButton.textContent = 'Journey initiated ✓';
+        startButton.setAttribute('aria-label', 'Journey initiated');
+      });
+    })();
+  </script>
+</body>
+</html>
