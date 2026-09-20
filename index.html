@@ -89,22 +89,22 @@
     .gauge__ticks { position: absolute; inset: 1.35rem; z-index: 2; border-radius: 50%; pointer-events: none; background: repeating-conic-gradient(from 220deg, rgba(255,255,255,.8) 0 1.2deg, transparent 1.2deg 4deg); mask: radial-gradient(transparent 0 84%, #000 85% 89%, transparent 90%); }
     .gauge__numbers { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
     .gauge__numbers span { position: absolute; color: #f0f0ed; font-size: clamp(.9rem, 4.2vw, 1.35rem); font-weight: 700; transform: translate(-50%, -50%); }
-    .gauge__numbers span:nth-child(1) { left: 22%; top: 70%; }
-    .gauge__numbers span:nth-child(2) { left: 18%; top: 52%; }
-    .gauge__numbers span:nth-child(3) { left: 24%; top: 34%; }
-    .gauge__numbers span:nth-child(4) { left: 37%; top: 20%; }
-    .gauge__numbers span:nth-child(5) { left: 50%; top: 16%; }
-    .gauge__numbers span:nth-child(6) { left: 63%; top: 20%; }
-    .gauge__numbers span:nth-child(7) { left: 76%; top: 34%; }
-    .gauge__numbers span:nth-child(8) { left: 82%; top: 52%; }
-    .gauge__numbers span:nth-child(9) { left: 78%; top: 70%; color: var(--red); }
-    .gauge__numbers span:nth-child(10) { left: 67%; top: 82%; color: var(--red); }
-    .gauge__numbers span:nth-child(11) { left: 52%; top: 87%; color: var(--red); }
-    .gauge__needle { position: absolute; z-index: 4; width: 42%; height: 2px; background: var(--acid); box-shadow: 0 0 .5rem rgba(243,196,0,.65); transform: rotate(var(--needle-angle, -130deg)); transform-origin: 100% 50%; transition: transform 1.5s cubic-bezier(.22,.8,.35,1); }
+    .gauge__numbers span:nth-child(1) { left: 21%; top: 73%; }
+    .gauge__numbers span:nth-child(2) { left: 15%; top: 60%; }
+    .gauge__numbers span:nth-child(3) { left: 15%; top: 40%; }
+    .gauge__numbers span:nth-child(4) { left: 25%; top: 24%; }
+    .gauge__numbers span:nth-child(5) { left: 40%; top: 15%; }
+    .gauge__numbers span:nth-child(6) { left: 50%; top: 12%; }
+    .gauge__numbers span:nth-child(7) { left: 60%; top: 15%; }
+    .gauge__numbers span:nth-child(8) { left: 75%; top: 24%; }
+    .gauge__numbers span:nth-child(9) { left: 85%; top: 40%; color: var(--red); }
+    .gauge__numbers span:nth-child(10) { left: 85%; top: 60%; color: var(--red); }
+    .gauge__numbers span:nth-child(11) { left: 77%; top: 73%; color: var(--red); }
+    .gauge__needle { position: absolute; z-index: 4; width: 42%; height: 2px; background: var(--acid); box-shadow: 0 0 .5rem rgba(243,196,0,.65); transform: rotate(var(--needle-angle, -40deg)); transform-origin: 100% 50%; transition: transform 1.5s cubic-bezier(.22,.8,.35,1); }
     .gauge__needle::before { position: absolute; right: 0; width: 0; height: 0; content: ""; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-right: 12px solid var(--acid); transform: translateY(-3px); }
     .gauge__hub { position: absolute; z-index: 5; width: 1rem; height: 1rem; border: 2px solid #bec4c0; border-radius: 50%; background: #626a69; box-shadow: 0 0 0 .2rem #202728; }
     .gauge__brand { position: absolute; top: 32%; z-index: 4; color: #b8bfbc; font-size: .54rem; font-style: italic; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-    .gauge__mode { position: absolute; bottom: 16%; z-index: 4; color: var(--acid); font-size: .56rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .gauge__mode { position: absolute; bottom: 9%; z-index: 4; color: var(--acid); font-size: .56rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
     .stat { padding: .95rem .8rem; border: 1px solid rgba(255,255,255,.09); background: var(--card); }
     .stat__value { display: block; margin-bottom: .35rem; color: var(--acid); font-size: 1.05rem; font-weight: 800; letter-spacing: -.03em; }
@@ -193,7 +193,7 @@
           const eased = 1 - Math.pow(1 - progress, 3);
           const value = target * eased;
           rpm.textContent = value.toFixed(1);
-          gauge.style.setProperty('--needle-angle', `${-130 + (220 * eased)}deg`);
+          gauge.style.setProperty('--needle-angle', `${-40 - (90 * eased)}deg`);
           if (progress < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
