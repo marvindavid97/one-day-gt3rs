@@ -80,31 +80,38 @@
     .hero__copy { max-width: 31rem; margin: 2rem 0 0; color: #c3c9c7; font-size: 1.03rem; line-height: 1.6; }
     .hero__copy strong { color: var(--ink); font-weight: 600; }
     .gauge-wrap { display: grid; place-items: center; padding: 3.5rem 0 3rem; }
-    .gauge { position: relative; width: min(88vw, 25rem); aspect-ratio: 1; display: grid; place-items: center; border: .85rem solid #1e2627; border-radius: 50%; background: radial-gradient(circle at 50% 42%, #273133 0 3%, #111719 42%, #07090a 70%); box-shadow: 0 0 0 1px #4a5454, inset 0 0 0 1px #050606, inset 0 0 2.5rem #000, 0 1.5rem 3.5rem rgba(0,0,0,.55); }
-    .gauge::before { position: absolute; inset: .52rem; content: ""; border: 1px solid rgba(255,255,255,.18); border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(0,0,0,.9); }
-    .gauge::after { position: absolute; inset: 1rem; content: ""; border-radius: inherit; background: conic-gradient(from 220deg, transparent 0deg 184deg, var(--red) 184deg 205deg, transparent 205deg 360deg); opacity: .9; mask: radial-gradient(transparent 0 84%, #000 85% 88%, transparent 89%); }
-    .gauge__inner { position: relative; z-index: 3; display: grid; place-items: center; width: 43%; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; background: radial-gradient(circle, #172022, #080a0b 68%); box-shadow: inset 0 0 1.8rem #000; text-align: center; }
-    .gauge__value { font-variant-numeric: tabular-nums; font-size: clamp(3.1rem, 14vw, 5rem); font-weight: 700; line-height: .86; letter-spacing: -.08em; }
-    .gauge__unit { margin-top: .7rem; color: #cbd0ce; font-size: .55rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
-    .gauge__ticks { position: absolute; inset: 1.35rem; z-index: 2; border-radius: 50%; pointer-events: none; background: repeating-conic-gradient(from 220deg, rgba(255,255,255,.8) 0 1.2deg, transparent 1.2deg 4deg); mask: radial-gradient(transparent 0 84%, #000 85% 89%, transparent 90%); }
-    .gauge__numbers { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
-    .gauge__numbers span { position: absolute; color: #f0f0ed; font-size: clamp(.9rem, 4.2vw, 1.35rem); font-weight: 700; transform: translate(-50%, -50%); }
-    .gauge__numbers span:nth-child(1) { left: 21%; top: 73%; }
-    .gauge__numbers span:nth-child(2) { left: 15%; top: 60%; }
-    .gauge__numbers span:nth-child(3) { left: 15%; top: 40%; }
-    .gauge__numbers span:nth-child(4) { left: 25%; top: 24%; }
-    .gauge__numbers span:nth-child(5) { left: 40%; top: 15%; }
-    .gauge__numbers span:nth-child(6) { left: 50%; top: 12%; }
-    .gauge__numbers span:nth-child(7) { left: 60%; top: 15%; }
-    .gauge__numbers span:nth-child(8) { left: 75%; top: 24%; }
-    .gauge__numbers span:nth-child(9) { left: 85%; top: 40%; color: var(--red); }
-    .gauge__numbers span:nth-child(10) { left: 85%; top: 60%; color: var(--red); }
-    .gauge__numbers span:nth-child(11) { left: 77%; top: 73%; color: var(--red); }
-    .gauge__needle { position: absolute; z-index: 4; width: 42%; height: 2px; background: var(--acid); box-shadow: 0 0 .5rem rgba(243,196,0,.65); transform: rotate(var(--needle-angle, -40deg)); transform-origin: 100% 50%; transition: transform 1.5s cubic-bezier(.22,.8,.35,1); }
-    .gauge__needle::before { position: absolute; right: 0; width: 0; height: 0; content: ""; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-right: 12px solid var(--acid); transform: translateY(-3px); }
-    .gauge__hub { position: absolute; z-index: 5; width: 1rem; height: 1rem; border: 2px solid #bec4c0; border-radius: 50%; background: #626a69; box-shadow: 0 0 0 .2rem #202728; }
-    .gauge__brand { position: absolute; top: 32%; z-index: 4; color: #b8bfbc; font-size: .54rem; font-style: italic; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-    .gauge__mode { position: absolute; bottom: 9%; z-index: 4; color: var(--acid); font-size: .56rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .gauge { position: relative; isolation: isolate; width: min(90vw, 27rem); aspect-ratio: 1; border: .8rem solid #292728; border-radius: 50%; background: radial-gradient(circle, #111 0 36%, #262321 37% 56%, #0a0a0a 57% 100%); box-shadow: 0 0 0 1px #77716b, inset 0 0 0 .2rem #090909, inset 0 0 2.5rem #000, 0 1.5rem 3.5rem rgba(0,0,0,.58); }
+    .gauge::before { position: absolute; inset: .45rem; z-index: 0; content: ""; border: .22rem solid #060606; border-radius: inherit; box-shadow: inset 0 0 0 1px #4c4945, 0 0 0 1px rgba(255,255,255,.18); }
+    .gauge::after { position: absolute; inset: 1rem; z-index: 1; content: ""; border-radius: inherit; background: conic-gradient(from 0deg, transparent 0deg 102deg, var(--red) 102deg 149deg, transparent 149deg 360deg); mask: radial-gradient(transparent 0 84%, #000 85% 90%, transparent 91%); }
+    .gauge__grooves { position: absolute; inset: 2.6rem; z-index: 1; border-radius: 50%; background: repeating-radial-gradient(circle at center, #c9c0b2 0 1px, #3e3a36 1.5px 4px); opacity: .92; mask: radial-gradient(transparent 0 57%, #000 58% 88%, transparent 89%); }
+    .gauge__inner { position: absolute; inset: 26%; z-index: 2; border: .14rem solid #262220; border-radius: 50%; background: radial-gradient(circle at 50% 42%, #292522 0, #111 59%, #050505 100%); box-shadow: inset 0 0 1.6rem #000; }
+    .gauge__value { font-variant-numeric: tabular-nums; font-size: clamp(3rem, 13vw, 4.6rem); font-weight: 750; line-height: .86; letter-spacing: -.08em; }
+    .gauge__unit { position: absolute; bottom: 4%; left: 50%; z-index: 6; width: 100%; transform: translateX(-50%); color: #e4e0d8; font-size: .65rem; font-weight: 700; letter-spacing: .02em; text-align: center; text-transform: lowercase; }
+    .gauge__ticks { position: absolute; inset: 1.25rem; z-index: 3; border-radius: 50%; pointer-events: none; background: repeating-conic-gradient(from 129deg, #e5dc83 0 1.1deg, transparent 1.1deg 3.5deg); mask: radial-gradient(transparent 0 84%, #000 85% 89%, transparent 90%); }
+    .gauge__major-ticks { position: absolute; inset: 1.5rem; z-index: 4; border-radius: 50%; pointer-events: none; background: repeating-conic-gradient(from 130deg, rgba(239,235,223,.95) 0 2.1deg, transparent 2.1deg 26.8deg); mask: radial-gradient(transparent 0 82%, #000 83% 89%, transparent 90%); }
+    .gauge__numbers { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+    .gauge__numbers span { position: absolute; color: #f0ece4; font-size: clamp(1rem, 4.3vw, 1.45rem); font-weight: 800; letter-spacing: -.06em; text-shadow: 0 1px #49433d, 0 2px 3px #000; transform: translate(-50%, -50%); }
+    .gauge__numbers span:nth-child(1) { left: 22%; top: 72%; }
+    .gauge__numbers span:nth-child(2) { left: 15%; top: 59%; }
+    .gauge__numbers span:nth-child(3) { left: 17%; top: 42%; }
+    .gauge__numbers span:nth-child(4) { left: 27%; top: 27%; }
+    .gauge__numbers span:nth-child(5) { left: 41%; top: 17%; }
+    .gauge__numbers span:nth-child(6) { left: 51%; top: 14%; }
+    .gauge__numbers span:nth-child(7) { left: 63%; top: 18%; }
+    .gauge__numbers span:nth-child(8) { left: 76%; top: 29%; }
+    .gauge__numbers span:nth-child(9) { left: 83%; top: 43%; }
+    .gauge__numbers span:nth-child(10) { left: 82%; top: 60%; color: #f0ece4; }
+    .gauge__numbers span:nth-child(11) { left: 72%; top: 74%; color: #f0ece4; }
+    .gauge__numbers span:nth-child(n+10) { color: var(--red); }
+    .gauge__needle { position: absolute; top: 50%; left: 50%; z-index: 7; width: 37%; height: .28rem; border-radius: 999px; background: linear-gradient(90deg, #f7f3e5 0 13%, var(--acid) 14% 100%); box-shadow: 0 0 .55rem rgba(243,196,0,.55); transform: rotate(var(--needle-angle, 162deg)); transform-origin: 0 50%; transition: transform .9s cubic-bezier(.2,.8,.25,1); }
+    .gauge__needle::after { position: absolute; top: 50%; right: -.1rem; width: 0; height: 0; content: ""; border-top: .34rem solid transparent; border-bottom: .34rem solid transparent; border-left: .9rem solid var(--acid); transform: translateY(-50%); }
+    .gauge__hub { position: absolute; top: 50%; left: 50%; z-index: 8; width: 1.45rem; height: 1.45rem; border: .15rem solid #d1cbc0; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #e0ddd4 0 8%, #77716b 34%, #312d2b 66%); box-shadow: 0 0 0 .22rem #282321, 0 .12rem .3rem rgba(0,0,0,.7); transform: translate(-50%, -50%); }
+    .gauge__brand { position: absolute; top: 39%; left: 50%; z-index: 5; color: #f5efe2; font-size: clamp(1rem, 4.8vw, 1.65rem); font-style: italic; font-weight: 800; letter-spacing: -.08em; text-shadow: 0 1px #5e5851, 0 2px 4px #000; transform: translate(-50%, -50%) skew(-12deg); white-space: nowrap; }
+    .gauge__brand span { font-weight: 400; }
+    .gauge__speed { position: absolute; bottom: 16%; left: 50%; z-index: 6; display: grid; grid-template-columns: 1fr auto; align-items: center; width: 39%; min-height: 22%; padding: .4rem .5rem; border: 1px solid #3c3731; border-radius: 1rem; background: linear-gradient(#211e1a, #070707); box-shadow: inset 0 .1rem .35rem #000; transform: translateX(-50%); }
+    .gauge__speed-value { display: grid; place-items: center; font-variant-numeric: tabular-nums; font-size: clamp(1.7rem, 7vw, 2.5rem); font-weight: 750; line-height: 1; }
+    .gauge__speed-unit { grid-column: 1; color: #e4e0d8; font-size: .55rem; font-weight: 700; text-align: center; }
+    .gauge__gear { grid-column: 2; grid-row: 1 / span 2; color: #e4e0d8; font-size: .48rem; font-weight: 800; letter-spacing: .12em; line-height: 1.15; }
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
     .stat { padding: .95rem .8rem; border: 1px solid rgba(255,255,255,.09); background: var(--card); }
     .stat__value { display: block; margin-bottom: .35rem; color: var(--acid); font-size: 1.05rem; font-weight: 800; letter-spacing: -.03em; }
@@ -149,13 +156,16 @@
 
     <section class="gauge-wrap reveal reveal--3" aria-label="Analoger Drehzahlmesser">
       <div class="gauge" id="gauge">
+        <div class="gauge__grooves" aria-hidden="true"></div>
         <div class="gauge__ticks" aria-hidden="true"></div>
+        <div class="gauge__major-ticks" aria-hidden="true"></div>
         <div class="gauge__numbers" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
-        <div class="gauge__brand">high-revving spirit</div>
-        <div class="gauge__mode">normal · launch your journey</div>
+        <div class="gauge__inner" aria-hidden="true"></div>
+        <div class="gauge__brand">GT3 <span>RS</span></div>
         <div class="gauge__needle" aria-hidden="true"></div>
         <div class="gauge__hub" aria-hidden="true"></div>
-        <div class="gauge__inner"><div class="gauge__value" id="rpm">0</div><div class="gauge__unit">RPM × 1000</div></div>
+        <div class="gauge__speed"><div class="gauge__speed-value" id="speed">0</div><div class="gauge__speed-unit">km/h</div><div class="gauge__gear">P<br>R<br>N<br>D</div></div>
+        <div class="gauge__unit"><span id="rpm">0.0</span> 1/min×1000</div>
       </div>
     </section>
 
@@ -182,32 +192,69 @@
       const boot = document.querySelector('#boot');
       const gauge = document.querySelector('#gauge');
       const rpm = document.querySelector('#rpm');
+      const speed = document.querySelector('#speed');
       const startButton = document.querySelector('#startButton');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let currentRpm = 0;
+      let driveTimer;
 
-      const animateRpm = (target = 9.0) => {
-        const duration = reduceMotion ? 0 : 1500;
+      const animateRpm = (target, duration = 900) => {
+        const startValue = currentRpm;
+        const finalTarget = Math.max(0, Math.min(target, 9.8));
         const start = performance.now();
-        const tick = (time) => {
-          const progress = duration ? Math.min((time - start) / duration, 1) : 1;
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const value = target * eased;
+        const effectiveDuration = reduceMotion ? 0 : duration;
+        const updateReadout = (value) => {
+          currentRpm = value;
           rpm.textContent = value.toFixed(1);
-          gauge.style.setProperty('--needle-angle', `${-40 - (90 * eased)}deg`);
-          if (progress < 1) requestAnimationFrame(tick);
+          speed.textContent = Math.max(0, Math.round((value - .8) * 34));
+          gauge.style.setProperty('--needle-angle', `${135 + (value * 27)}deg`);
         };
-        requestAnimationFrame(tick);
+
+        if (!effectiveDuration) {
+          updateReadout(finalTarget);
+          return Promise.resolve();
+        }
+
+        return new Promise((resolve) => {
+          const tick = (time) => {
+            const progress = Math.min((time - start) / effectiveDuration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            updateReadout(startValue + ((finalTarget - startValue) * eased));
+            if (progress < 1) requestAnimationFrame(tick);
+            else resolve();
+          };
+          requestAnimationFrame(tick);
+        });
+      };
+
+      const drivePulse = async () => {
+        const peaks = [3.8, 4.7, 5.6, 6.4, 7.2, 8.4];
+        const peak = peaks[Math.floor(Math.random() * peaks.length)];
+        await animateRpm(peak, 760);
+        await new Promise((resolve) => window.setTimeout(resolve, 380));
+        await animateRpm(1.4 + (Math.random() * .8), 1100);
+        driveTimer = window.setTimeout(drivePulse, 2500 + (Math.random() * 3000));
+      };
+
+      const startDriving = () => {
+        window.clearTimeout(driveTimer);
+        driveTimer = window.setTimeout(drivePulse, 2200);
       };
 
       window.setTimeout(() => {
         boot.classList.add('is-done');
-        animateRpm();
+        animateRpm(1.5, 650).then(startDriving);
       }, reduceMotion ? 80 : 2350);
 
-      startButton.addEventListener('click', () => {
+      startButton.addEventListener('click', async () => {
         document.querySelector('.message').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
         startButton.textContent = 'Journey initiated ✓';
         startButton.setAttribute('aria-label', 'Journey initiated');
+        window.clearTimeout(driveTimer);
+        await animateRpm(9.1, 740);
+        await new Promise((resolve) => window.setTimeout(resolve, 300));
+        await animateRpm(2.2, 1000);
+        startDriving();
       });
     })();
   </script>
