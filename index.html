@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07090a">
   <meta name="description" content="One day. Für Enrique — eine kleine Erinnerung an Technik, Karriere, Reisen und den eigenen 911 GT3 RS.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="ONE DAY">
+  <meta property="og:title" content="ONE DAY — GT3 RS">
+  <meta property="og:description" content="Ein Schlüssel, der noch zu keinem Porsche gehört. Noch nicht.">
+  <meta property="og:url" content="https://marvindavid97.github.io/one-day-gt3rs/">
+  <meta property="og:image" content="https://marvindavid97.github.io/one-day-gt3rs/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Porsche-Schlüssel auf dunklem Hintergrund">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" as="image" href="assets/porsche-schluessel-front.png?v=3" fetchpriority="high">
   <title>ONE DAY — GT3 RS</title>
   <style>
     :root {
@@ -55,9 +69,9 @@
     .boot.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
     .boot__inner { width: min(100%, 28rem); text-align: center; }
     .boot__key {
-      width: 10rem;
-      height: 18.7rem;
-      margin: 0 auto .55rem;
+      width: 6.6rem;
+      height: 15.8rem;
+      margin: 0 auto .9rem;
     }
     .boot__key img {
       display: block;
@@ -122,7 +136,7 @@
     .gauge__hub { position: absolute; top: 50%; left: 50%; z-index: 8; width: 1.45rem; height: 1.45rem; border: .15rem solid #d1cbc0; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #e0ddd4 0 8%, #77716b 34%, #312d2b 66%); box-shadow: 0 0 0 .22rem #282321, 0 .12rem .3rem rgba(0,0,0,.7); transform: translate(-50%, -50%); }
     .gauge__brand { position: absolute; top: 39%; left: 50%; z-index: 5; color: #f5efe2; font-size: clamp(1rem, 4.8vw, 1.65rem); font-style: italic; font-weight: 800; letter-spacing: -.08em; text-shadow: 0 1px #5e5851, 0 2px 4px #000; transform: translate(-50%, -50%) skew(-12deg); white-space: nowrap; }
     .gauge__brand span { font-weight: 400; }
-    .gauge__speed { position: absolute; bottom: 16%; left: 50%; z-index: 6; display: grid; grid-template-columns: 1fr auto; align-items: center; width: 39%; min-height: 22%; padding: .4rem .5rem; border: 1px solid #3c3731; border-radius: 1rem; background: linear-gradient(#211e1a, #070707); box-shadow: inset 0 .1rem .35rem #000; transform: translateX(-50%); }
+    .gauge__speed { position: absolute; bottom: 16%; left: 50%; z-index: 6; display: grid; grid-template-columns: 1fr auto; align-items: center; width: 36%; min-height: 22%; padding: .4rem .45rem; border: 1px solid #3c3731; border-radius: 1rem; background: linear-gradient(#211e1a, #070707); box-shadow: inset 0 .1rem .35rem #000; transform: translateX(-50%); }
     .gauge__speed-value { display: grid; place-items: center; font-variant-numeric: tabular-nums; font-size: clamp(1.7rem, 7vw, 2.5rem); font-weight: 750; line-height: 1; }
     .gauge__speed-unit { grid-column: 1; color: #e4e0d8; font-size: .55rem; font-weight: 700; text-align: center; }
     .gauge__gear { grid-column: 2; grid-row: 1 / span 2; color: #e4e0d8; font-size: .48rem; font-weight: 800; letter-spacing: .12em; line-height: 1.15; }
@@ -151,7 +165,7 @@
     <div class="boot__inner">
       <div class="boot__eyebrow">NFC signal confirmed</div>
       <div class="boot__key" aria-hidden="true">
-        <img src="assets/porsche-schluessel-front.png?v=2" alt="">
+        <img src="assets/porsche-schluessel-front.png?v=3" width="315" height="760" alt="" fetchpriority="high" decoding="sync">
       </div>
       <h2 class="boot__title">KEY <span>DETECTED</span></h2>
       <div class="boot__line" aria-hidden="true"></div>
