@@ -53,7 +53,46 @@
       transition: opacity .7s ease, visibility .7s ease;
     }
     .boot.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
-    .boot__inner { width: min(100%, 26rem); text-align: center; }
+    .boot__inner { width: min(100%, 28rem); text-align: center; }
+    .boot__key {
+      position: relative;
+      display: grid;
+      width: min(100%, 18rem);
+      height: 13.5rem;
+      margin: 0 auto .35rem;
+      place-items: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .boot__key::before {
+      position: absolute;
+      inset: 18% 8%;
+      z-index: -1;
+      content: "";
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(255,208,0,.24), rgba(255,208,0,.06) 36%, transparent 70%);
+      filter: blur(.55rem);
+      animation: keyGlow 1.9s ease-out forwards;
+    }
+    .boot__key::after {
+      position: absolute;
+      inset: 21%;
+      z-index: -1;
+      content: "";
+      border: 1px solid rgba(255,208,0,.42);
+      border-radius: 50%;
+      opacity: 0;
+      animation: keyPulse 1.6s .8s ease-out forwards;
+    }
+    .boot__key img {
+      width: 128%;
+      max-width: 25rem;
+      opacity: 0;
+      mix-blend-mode: screen;
+      filter: grayscale(1) invert(1) sepia(.45) saturate(1.8) contrast(.88) drop-shadow(0 .75rem 1.3rem rgba(0,0,0,.75));
+      transform: translateY(3rem) scale(.74) rotate(-10deg);
+      animation: keyArrival 1.55s cubic-bezier(.16,.85,.25,1) .18s forwards;
+    }
     .boot__eyebrow, .eyebrow, .meta, .label {
       color: var(--muted);
       font-size: .68rem;
@@ -61,13 +100,28 @@
       letter-spacing: .24em;
       text-transform: uppercase;
     }
-    .boot__eyebrow { margin-bottom: 1.15rem; }
+    .boot__eyebrow { margin-bottom: .7rem; }
     .boot__title { margin: 0; font-size: clamp(2.35rem, 11vw, 4rem); letter-spacing: -.06em; }
     .boot__title span { color: var(--acid); }
     .boot__line { height: 2px; margin-top: 2rem; overflow: hidden; background: #202626; }
     .boot__line::after { display: block; width: 100%; height: 100%; content: ""; background: var(--acid); transform-origin: left; animation: load 2.2s cubic-bezier(.22,.8,.35,1) forwards; }
     .boot__hint { margin-top: .9rem; color: #66706f; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
     @keyframes load { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes keyArrival {
+      0% { opacity: 0; transform: translateY(3rem) scale(.74) rotate(-10deg); }
+      62% { opacity: 1; transform: translateY(-.35rem) scale(1.03) rotate(1.5deg); }
+      100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+    }
+    @keyframes keyGlow {
+      0%, 28% { opacity: 0; transform: scale(.6); }
+      65% { opacity: 1; transform: scale(1.08); }
+      100% { opacity: .65; transform: scale(1); }
+    }
+    @keyframes keyPulse {
+      0% { opacity: 0; transform: scale(.55); }
+      24% { opacity: .8; }
+      100% { opacity: 0; transform: scale(1.75); }
+    }
     main { position: relative; z-index: 1; width: min(100%, 42rem); margin: 0 auto; padding: max(1.5rem, env(safe-area-inset-top)) 1.25rem max(3rem, env(safe-area-inset-bottom)); }
     .topbar { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 3.55rem; padding-top: .4rem; }
     .topbar__mark { display: flex; align-items: center; gap: .65rem; color: var(--acid); font-size: .76rem; font-weight: 800; letter-spacing: .16em; }
@@ -138,6 +192,9 @@
   <section class="boot" id="boot" aria-label="Startsequenz">
     <div class="boot__inner">
       <div class="boot__eyebrow">NFC signal confirmed</div>
+      <div class="boot__key" aria-hidden="true">
+        <img src="assets/porsche-schluessel.webp" alt="">
+      </div>
       <h2 class="boot__title">KEY <span>DETECTED</span></h2>
       <div class="boot__line" aria-hidden="true"></div>
       <div class="boot__hint">initialising your next chapter</div>
@@ -246,7 +303,7 @@
       window.setTimeout(() => {
         boot.classList.add('is-done');
         animateRpm(1.5, 650).then(startDriving);
-      }, reduceMotion ? 80 : 2350);
+      }, reduceMotion ? 80 : 3300);
 
     })();
   </script>
