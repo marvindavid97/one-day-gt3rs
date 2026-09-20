@@ -10,7 +10,8 @@ ein persönlicher Geburtstagsgruß.
 | --- | --- |
 | `index.html` | Startsequenz, Drehzahlmesser, Einstiegstext |
 | `birthday.html` | Die eigentliche Geburtstagskarte |
-| `assets/` | Schlüsselbild (freigestellt), Wappen, Favicon, Teilen-Vorschau |
+| `assets/` | Schlüsselbild (freigestellt), Wappen, Favicon, Teilen-Vorschau, App-Icons |
+| `manifest.json` | Web-App-Manifest für „Zum Startbildschirm hinzufügen" |
 
 Kein Build-Schritt, keine Abhängigkeiten, keine Serverlogik — zwei HTML-Dateien
 mit eingebettetem CSS und etwas JavaScript.
@@ -25,6 +26,13 @@ https://marvindavid97.github.io/one-day-gt3rs/
 ```
 
 Die `.nojekyll`-Datei sorgt dafür, dass Pages die Dateien unverändert ausliefert.
+
+## Als App speichern
+
+Auf dem iPhone in Safari über **Teilen → Zum Home-Bildschirm**, auf Android in
+Chrome über **Menü → Zum Startbildschirm hinzufügen**. Als Symbol erscheint das
+Wappen auf dunklem Grund (`assets/app-icon-*.png`); die Seite startet dann ohne
+Browserleiste.
 
 ## Hinweise
 
