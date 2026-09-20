@@ -69,10 +69,14 @@
     .boot__hint { margin-top: .9rem; color: #66706f; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
     @keyframes load { from { transform: scaleX(0); } to { transform: scaleX(1); } }
     main { position: relative; z-index: 1; width: min(100%, 42rem); margin: 0 auto; padding: max(1.5rem, env(safe-area-inset-top)) 1.25rem max(3rem, env(safe-area-inset-bottom)); }
-    .topbar { display: flex; align-items: center; justify-content: space-between; padding-top: .4rem; }
+    .topbar { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 2.3rem; padding-top: .4rem; }
     .topbar__mark { display: flex; align-items: center; gap: .65rem; color: var(--acid); font-size: .76rem; font-weight: 800; letter-spacing: .16em; }
     .topbar__mark::before { width: .48rem; height: .48rem; content: ""; border-radius: 50%; background: var(--red); box-shadow: 0 0 1rem rgba(226,45,51,.65); }
     .topbar__index { color: #596262; font-size: .68rem; letter-spacing: .18em; }
+    .brand-lockup { position: absolute; left: 50%; display: flex; align-items: center; gap: .42rem; color: var(--ink); transform: translateX(-50%); white-space: nowrap; }
+    .brand-badge { display: grid; place-items: center; width: 1.2rem; height: 1.4rem; border: 1px solid #d4b650; clip-path: polygon(50% 0, 94% 15%, 87% 69%, 50% 100%, 13% 69%, 6% 15%); color: #e7d47d; background: linear-gradient(135deg, #151515, #5d171b 48%, #161616 49%); font-size: .42rem; font-weight: 900; letter-spacing: 0; }
+    .brand-name { display: block; font-size: .68rem; font-weight: 900; letter-spacing: .2em; line-height: 1; }
+    .brand-model { display: block; margin-top: .18rem; color: var(--acid); font-size: .44rem; font-weight: 800; letter-spacing: .15em; line-height: 1; }
     .hero { padding: 4.5rem 0 0; }
     .eyebrow { color: var(--acid); }
     h1 { margin: .9rem 0 0; font-size: clamp(4.5rem, 19vw, 8.5rem); line-height: .79; letter-spacing: -.1em; }
@@ -93,7 +97,7 @@
     .gauge__numbers span { position: absolute; color: #f0ece4; font-size: clamp(1rem, 4.3vw, 1.45rem); font-weight: 800; letter-spacing: -.06em; text-shadow: 0 1px #49433d, 0 2px 3px #000; transform: translate(-50%, -50%); }
     .gauge__numbers span:nth-child(1) { left: 22%; top: 72%; }
     .gauge__numbers span:nth-child(2) { left: 15%; top: 59%; }
-    .gauge__numbers span:nth-child(3) { left: 17%; top: 42%; }
+    .gauge__numbers span:nth-child(3) { left: 18%; top: 45%; }
     .gauge__numbers span:nth-child(4) { left: 27%; top: 27%; }
     .gauge__numbers span:nth-child(5) { left: 41%; top: 17%; }
     .gauge__numbers span:nth-child(6) { left: 51%; top: 14%; }
@@ -121,7 +125,7 @@
     .message h2 { margin: .75rem 0 1.1rem; font-size: 1.8rem; letter-spacing: -.06em; }
     .message p { margin: .8rem 0; color: #c0c6c2; line-height: 1.65; }
     .message p:last-child { margin-bottom: 0; color: var(--ink); font-weight: 650; }
-    .cta { width: 100%; margin-top: 1.2rem; padding: 1.1rem 1.2rem; border: 0; color: #101300; background: var(--acid); cursor: pointer; font-size: .78rem; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; transition: transform .2s ease, box-shadow .2s ease; }
+    .cta { display: flex; align-items: center; justify-content: center; width: 100%; margin-top: 1.2rem; padding: 1.1rem 1.2rem; border: 0; color: #101300; background: var(--acid); cursor: pointer; font-size: .78rem; font-weight: 900; letter-spacing: .2em; text-decoration: none; text-transform: uppercase; transition: transform .2s ease, box-shadow .2s ease; }
     .cta:hover, .cta:focus-visible { transform: translateY(-2px); box-shadow: 0 .8rem 2rem rgba(216,255,50,.18); outline: none; }
     .footer { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3.5rem; color: #596262; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; }
     .footer span:last-child { color: var(--acid-dark); text-align: right; }
@@ -145,6 +149,7 @@
   <main>
     <header class="topbar reveal">
       <div class="topbar__mark">ONE DAY</div>
+      <div class="brand-lockup" aria-label="Porsche 911 GT3 RS"><span class="brand-badge" aria-hidden="true">911</span><span><strong class="brand-name">PORSCHE</strong><small class="brand-model">911 GT3 RS</small></span></div>
       <div class="topbar__index">ENQ / 001</div>
     </header>
 
@@ -181,7 +186,7 @@
       <p>Dieser Schlüssel gehört heute noch zu keinem Porsche. Aber er soll dich daran erinnern, was vor dir liegt: deinen Weg als Techniker, deine Karriere, neue Orte und all die Reisen, die noch auf dich warten.</p>
       <p>Irgendwann steht dein eigener 911 GT3 RS vor deiner Tür. Bis dahin: Bleib neugierig, tritt weiter aufs Gas und verliere nie aus den Augen, wo du hinwillst.</p>
       <p>One day. Keep going.</p>
-      <button class="cta" id="startButton" type="button">START YOUR JOURNEY <span aria-hidden="true">↗</span></button>
+      <a class="cta" id="startButton" href="birthday.html">START YOUR JOURNEY <span aria-hidden="true">↗</span></a>
     </section>
 
     <footer class="footer"><span>Made for the next chapter</span><span>no limits / just direction</span></footer>
@@ -228,12 +233,12 @@
       };
 
       const drivePulse = async () => {
-        const peaks = [3.8, 4.7, 5.6, 6.4, 7.2, 8.4];
+        const peaks = [5.2, 6.1, 7.0, 7.8, 8.4, 8.9];
         const peak = peaks[Math.floor(Math.random() * peaks.length)];
-        await animateRpm(peak, 760);
-        await new Promise((resolve) => window.setTimeout(resolve, 380));
-        await animateRpm(1.4 + (Math.random() * .8), 1100);
-        driveTimer = window.setTimeout(drivePulse, 2500 + (Math.random() * 3000));
+        await animateRpm(peak, 1250);
+        await new Promise((resolve) => window.setTimeout(resolve, 1800 + (Math.random() * 1800)));
+        await animateRpm(1.4 + (Math.random() * .8), 1450);
+        driveTimer = window.setTimeout(drivePulse, 3200 + (Math.random() * 3600));
       };
 
       const startDriving = () => {
@@ -246,15 +251,16 @@
         animateRpm(1.5, 650).then(startDriving);
       }, reduceMotion ? 80 : 2350);
 
-      startButton.addEventListener('click', async () => {
+      startButton.addEventListener('click', async (event) => {
+        event.preventDefault();
         document.querySelector('.message').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
         startButton.textContent = 'Journey initiated ✓';
         startButton.setAttribute('aria-label', 'Journey initiated');
         window.clearTimeout(driveTimer);
         await animateRpm(9.1, 740);
-        await new Promise((resolve) => window.setTimeout(resolve, 300));
+        await new Promise((resolve) => window.setTimeout(resolve, 950));
         await animateRpm(2.2, 1000);
-        startDriving();
+        window.location.href = startButton.href;
       });
     })();
   </script>
