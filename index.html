@@ -11,11 +11,11 @@
       --ink: #f3f4ef;
       --muted: #929a99;
       --soft: #1b2324;
-      --acid: #d8ff32;
-      --acid-dark: #8ea91e;
-      --red: #ff4c37;
+      --acid: #f3c400;
+      --acid-dark: #9f8200;
+      --red: #e22d33;
       --bg: #07090a;
-      --card: rgba(17, 23, 24, .76);
+      --card: rgba(18, 22, 23, .9);
     }
     * { box-sizing: border-box; }
     html { background: var(--bg); }
@@ -26,8 +26,8 @@
       overflow-x: hidden;
       color: var(--ink);
       background:
-        radial-gradient(circle at 50% 22%, rgba(216,255,50,.08), transparent 28rem),
-        linear-gradient(160deg, #07090a 0%, #0c1112 52%, #050606 100%);
+        radial-gradient(circle at 50% 26%, rgba(243,196,0,.08), transparent 24rem),
+        linear-gradient(160deg, #080a0b 0%, #101516 52%, #050606 100%);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
     body::before {
@@ -36,7 +36,7 @@
       z-index: 0;
       pointer-events: none;
       content: "";
-      opacity: .22;
+      opacity: .15;
       background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
       background-size: 48px 48px;
       mask-image: linear-gradient(transparent, black 20%, black 75%, transparent);
@@ -71,22 +71,39 @@
     main { position: relative; z-index: 1; width: min(100%, 42rem); margin: 0 auto; padding: max(1.5rem, env(safe-area-inset-top)) 1.25rem max(3rem, env(safe-area-inset-bottom)); }
     .topbar { display: flex; align-items: center; justify-content: space-between; padding-top: .4rem; }
     .topbar__mark { display: flex; align-items: center; gap: .65rem; color: var(--acid); font-size: .76rem; font-weight: 800; letter-spacing: .16em; }
-    .topbar__mark::before { width: .48rem; height: .48rem; content: ""; border-radius: 50%; background: var(--acid); box-shadow: 0 0 1rem var(--acid); }
+    .topbar__mark::before { width: .48rem; height: .48rem; content: ""; border-radius: 50%; background: var(--red); box-shadow: 0 0 1rem rgba(226,45,51,.65); }
     .topbar__index { color: #596262; font-size: .68rem; letter-spacing: .18em; }
     .hero { padding: 4.5rem 0 0; }
     .eyebrow { color: var(--acid); }
     h1 { margin: .9rem 0 0; font-size: clamp(4.5rem, 19vw, 8.5rem); line-height: .79; letter-spacing: -.1em; }
-    h1 span { display: block; color: #6f7978; font-weight: 300; }
-    .hero__copy { max-width: 31rem; margin: 2rem 0 0; color: #bcc3c0; font-size: 1.03rem; line-height: 1.6; }
+    h1 span { display: block; color: #89908f; font-weight: 300; }
+    .hero__copy { max-width: 31rem; margin: 2rem 0 0; color: #c3c9c7; font-size: 1.03rem; line-height: 1.6; }
     .hero__copy strong { color: var(--ink); font-weight: 600; }
     .gauge-wrap { display: grid; place-items: center; padding: 3.5rem 0 3rem; }
-    .gauge { position: relative; width: min(78vw, 20rem); aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: conic-gradient(from 220deg, var(--acid) 0deg var(--progress, 0deg), #293332 var(--progress, 0deg) 205deg, transparent 205deg 360deg); box-shadow: 0 0 0 1px rgba(216,255,50,.12), 0 0 4rem rgba(216,255,50,.08); transition: background 1.7s cubic-bezier(.22,.8,.35,1); }
-    .gauge::before { position: absolute; inset: .48rem; content: ""; border-radius: inherit; background: var(--bg); }
-    .gauge::after { position: absolute; inset: 1.1rem; content: ""; border: 1px solid rgba(255,255,255,.08); border-radius: inherit; }
-    .gauge__inner { position: relative; z-index: 1; text-align: center; }
-    .gauge__value { font-variant-numeric: tabular-nums; font-size: clamp(3.8rem, 16vw, 6rem); font-weight: 800; line-height: .9; letter-spacing: -.08em; }
-    .gauge__unit { margin-top: .75rem; color: var(--muted); font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
-    .gauge__ticks { position: absolute; inset: .8rem; z-index: 2; border-radius: 50%; pointer-events: none; background: repeating-conic-gradient(from 220deg, rgba(255,255,255,.72) 0 1deg, transparent 1deg 8deg); mask: radial-gradient(transparent 0 78%, #000 79% 81%, transparent 82%); }
+    .gauge { position: relative; width: min(88vw, 25rem); aspect-ratio: 1; display: grid; place-items: center; border: .85rem solid #1e2627; border-radius: 50%; background: radial-gradient(circle at 50% 42%, #273133 0 3%, #111719 42%, #07090a 70%); box-shadow: 0 0 0 1px #4a5454, inset 0 0 0 1px #050606, inset 0 0 2.5rem #000, 0 1.5rem 3.5rem rgba(0,0,0,.55); }
+    .gauge::before { position: absolute; inset: .52rem; content: ""; border: 1px solid rgba(255,255,255,.18); border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(0,0,0,.9); }
+    .gauge::after { position: absolute; inset: 1rem; content: ""; border-radius: inherit; background: conic-gradient(from 220deg, transparent 0deg 184deg, var(--red) 184deg 205deg, transparent 205deg 360deg); opacity: .9; mask: radial-gradient(transparent 0 84%, #000 85% 88%, transparent 89%); }
+    .gauge__inner { position: relative; z-index: 3; display: grid; place-items: center; width: 43%; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; background: radial-gradient(circle, #172022, #080a0b 68%); box-shadow: inset 0 0 1.8rem #000; text-align: center; }
+    .gauge__value { font-variant-numeric: tabular-nums; font-size: clamp(3.1rem, 14vw, 5rem); font-weight: 700; line-height: .86; letter-spacing: -.08em; }
+    .gauge__unit { margin-top: .7rem; color: #cbd0ce; font-size: .55rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .gauge__ticks { position: absolute; inset: 1.35rem; z-index: 2; border-radius: 50%; pointer-events: none; background: repeating-conic-gradient(from 220deg, rgba(255,255,255,.8) 0 1.2deg, transparent 1.2deg 4deg); mask: radial-gradient(transparent 0 84%, #000 85% 89%, transparent 90%); }
+    .gauge__numbers { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+    .gauge__numbers span { position: absolute; color: #f0f0ed; font-size: clamp(.9rem, 4.2vw, 1.35rem); font-weight: 700; transform: translate(-50%, -50%); }
+    .gauge__numbers span:nth-child(1) { left: 22%; top: 70%; }
+    .gauge__numbers span:nth-child(2) { left: 18%; top: 52%; }
+    .gauge__numbers span:nth-child(3) { left: 24%; top: 34%; }
+    .gauge__numbers span:nth-child(4) { left: 37%; top: 20%; }
+    .gauge__numbers span:nth-child(5) { left: 50%; top: 16%; }
+    .gauge__numbers span:nth-child(6) { left: 63%; top: 20%; }
+    .gauge__numbers span:nth-child(7) { left: 76%; top: 34%; }
+    .gauge__numbers span:nth-child(8) { left: 82%; top: 52%; }
+    .gauge__numbers span:nth-child(9) { left: 78%; top: 70%; color: var(--red); }
+    .gauge__numbers span:nth-child(10) { left: 67%; top: 82%; color: var(--red); }
+    .gauge__needle { position: absolute; z-index: 4; width: 42%; height: 2px; background: var(--acid); box-shadow: 0 0 .5rem rgba(243,196,0,.65); transform: rotate(var(--needle-angle, -130deg)); transform-origin: 100% 50%; transition: transform 1.5s cubic-bezier(.22,.8,.35,1); }
+    .gauge__needle::before { position: absolute; right: 0; width: 0; height: 0; content: ""; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-right: 12px solid var(--acid); transform: translateY(-3px); }
+    .gauge__hub { position: absolute; z-index: 5; width: 1rem; height: 1rem; border: 2px solid #bec4c0; border-radius: 50%; background: #626a69; box-shadow: 0 0 0 .2rem #202728; }
+    .gauge__brand { position: absolute; top: 32%; z-index: 4; color: #b8bfbc; font-size: .54rem; font-style: italic; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .gauge__mode { position: absolute; bottom: 16%; z-index: 4; color: var(--acid); font-size: .56rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
     .stat { padding: .95rem .8rem; border: 1px solid rgba(255,255,255,.09); background: var(--card); }
     .stat__value { display: block; margin-bottom: .35rem; color: var(--acid); font-size: 1.05rem; font-weight: 800; letter-spacing: -.03em; }
@@ -129,9 +146,14 @@
       <p class="hero__copy">Manche Träume beginnen nicht mit einem Motorstart. Sie beginnen mit dem Moment, in dem man sich entscheidet, <strong>weiterzugehen</strong>.</p>
     </section>
 
-    <section class="gauge-wrap reveal reveal--3" aria-label="Drehzahlmesser">
+    <section class="gauge-wrap reveal reveal--3" aria-label="Analoger Drehzahlmesser">
       <div class="gauge" id="gauge">
         <div class="gauge__ticks" aria-hidden="true"></div>
+        <div class="gauge__numbers" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+        <div class="gauge__brand">high-revving spirit</div>
+        <div class="gauge__mode">normal · launch your journey</div>
+        <div class="gauge__needle" aria-hidden="true"></div>
+        <div class="gauge__hub" aria-hidden="true"></div>
         <div class="gauge__inner"><div class="gauge__value" id="rpm">0</div><div class="gauge__unit">RPM × 1000</div></div>
       </div>
     </section>
@@ -170,7 +192,7 @@
           const eased = 1 - Math.pow(1 - progress, 3);
           const value = target * eased;
           rpm.textContent = value.toFixed(1);
-          gauge.style.setProperty('--progress', `${205 * eased}deg`);
+          gauge.style.setProperty('--needle-angle', `${-130 + (220 * eased)}deg`);
           if (progress < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
