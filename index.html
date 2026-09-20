@@ -69,14 +69,12 @@
     .boot__hint { margin-top: .9rem; color: #66706f; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
     @keyframes load { from { transform: scaleX(0); } to { transform: scaleX(1); } }
     main { position: relative; z-index: 1; width: min(100%, 42rem); margin: 0 auto; padding: max(1.5rem, env(safe-area-inset-top)) 1.25rem max(3rem, env(safe-area-inset-bottom)); }
-    .topbar { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 2.3rem; padding-top: .4rem; }
+    .topbar { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 2.9rem; padding-top: .4rem; }
     .topbar__mark { display: flex; align-items: center; gap: .65rem; color: var(--acid); font-size: .76rem; font-weight: 800; letter-spacing: .16em; }
     .topbar__mark::before { width: .48rem; height: .48rem; content: ""; border-radius: 50%; background: var(--red); box-shadow: 0 0 1rem rgba(226,45,51,.65); }
     .topbar__index { color: #596262; font-size: .68rem; letter-spacing: .18em; }
-    .brand-lockup { position: absolute; left: 50%; display: flex; align-items: center; gap: .42rem; color: var(--ink); transform: translateX(-50%); white-space: nowrap; }
-    .brand-badge { display: grid; place-items: center; width: 1.2rem; height: 1.4rem; border: 1px solid #d4b650; clip-path: polygon(50% 0, 94% 15%, 87% 69%, 50% 100%, 13% 69%, 6% 15%); color: #e7d47d; background: linear-gradient(135deg, #151515, #5d171b 48%, #161616 49%); font-size: .42rem; font-weight: 900; letter-spacing: 0; }
-    .brand-name { display: block; font-size: .68rem; font-weight: 900; letter-spacing: .2em; line-height: 1; }
-    .brand-model { display: block; margin-top: .18rem; color: var(--acid); font-size: .44rem; font-weight: 800; letter-spacing: .15em; line-height: 1; }
+    .brand-lockup { position: absolute; left: 50%; z-index: 2; width: 1.85rem; transform: translateX(-50%); }
+    .brand-lockup img { display: block; width: 100%; height: auto; filter: drop-shadow(0 .18rem .35rem rgba(0,0,0,.65)); }
     .hero { padding: 4.5rem 0 0; }
     .eyebrow { color: var(--acid); }
     h1 { margin: .9rem 0 0; font-size: clamp(4.5rem, 19vw, 8.5rem); line-height: .79; letter-spacing: -.1em; }
@@ -95,17 +93,17 @@
     .gauge__major-ticks { position: absolute; inset: 1.5rem; z-index: 4; border-radius: 50%; pointer-events: none; background: repeating-conic-gradient(from 130deg, rgba(239,235,223,.95) 0 2.1deg, transparent 2.1deg 26.8deg); mask: radial-gradient(transparent 0 82%, #000 83% 89%, transparent 90%); }
     .gauge__numbers { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
     .gauge__numbers span { position: absolute; color: #f0ece4; font-size: clamp(1rem, 4.3vw, 1.45rem); font-weight: 800; letter-spacing: -.06em; text-shadow: 0 1px #49433d, 0 2px 3px #000; transform: translate(-50%, -50%); }
-    .gauge__numbers span:nth-child(1) { left: 22%; top: 72%; }
-    .gauge__numbers span:nth-child(2) { left: 15%; top: 59%; }
+    .gauge__numbers span:nth-child(1) { left: 25%; top: 70%; }
+    .gauge__numbers span:nth-child(2) { left: 19%; top: 59%; }
     .gauge__numbers span:nth-child(3) { left: 18%; top: 45%; }
     .gauge__numbers span:nth-child(4) { left: 27%; top: 27%; }
-    .gauge__numbers span:nth-child(5) { left: 41%; top: 17%; }
-    .gauge__numbers span:nth-child(6) { left: 51%; top: 14%; }
-    .gauge__numbers span:nth-child(7) { left: 63%; top: 18%; }
-    .gauge__numbers span:nth-child(8) { left: 76%; top: 29%; }
-    .gauge__numbers span:nth-child(9) { left: 83%; top: 43%; }
-    .gauge__numbers span:nth-child(10) { left: 82%; top: 60%; color: #f0ece4; }
-    .gauge__numbers span:nth-child(11) { left: 72%; top: 74%; color: #f0ece4; }
+    .gauge__numbers span:nth-child(5) { left: 41%; top: 19%; }
+    .gauge__numbers span:nth-child(6) { left: 51%; top: 18%; }
+    .gauge__numbers span:nth-child(7) { left: 62%; top: 20%; }
+    .gauge__numbers span:nth-child(8) { left: 75%; top: 30%; }
+    .gauge__numbers span:nth-child(9) { left: 81%; top: 43%; }
+    .gauge__numbers span:nth-child(10) { left: 81%; top: 59%; color: #f0ece4; }
+    .gauge__numbers span:nth-child(11) { left: 72%; top: 73%; color: #f0ece4; }
     .gauge__numbers span:nth-child(n+10) { color: var(--red); }
     .gauge__needle { position: absolute; top: 50%; left: 50%; z-index: 7; width: 37%; height: .28rem; border-radius: 999px; background: linear-gradient(90deg, #f7f3e5 0 13%, var(--acid) 14% 100%); box-shadow: 0 0 .55rem rgba(243,196,0,.55); transform: rotate(var(--needle-angle, 162deg)); transform-origin: 0 50%; transition: transform .9s cubic-bezier(.2,.8,.25,1); }
     .gauge__needle::after { position: absolute; top: 50%; right: -.1rem; width: 0; height: 0; content: ""; border-top: .34rem solid transparent; border-bottom: .34rem solid transparent; border-left: .9rem solid var(--acid); transform: translateY(-50%); }
@@ -149,7 +147,7 @@
   <main>
     <header class="topbar reveal">
       <div class="topbar__mark">ONE DAY</div>
-      <div class="brand-lockup" aria-label="Porsche 911 GT3 RS"><span class="brand-badge" aria-hidden="true">911</span><span><strong class="brand-name">PORSCHE</strong><small class="brand-model">911 GT3 RS</small></span></div>
+      <div class="brand-lockup"><img src="assets/porsche-wappen.webp" alt="Porsche Wappen"></div>
       <div class="topbar__index">ENQ / 001</div>
     </header>
 
