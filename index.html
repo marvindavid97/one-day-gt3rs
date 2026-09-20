@@ -99,6 +99,7 @@
     .gauge__numbers span:nth-child(8) { left: 82%; top: 52%; }
     .gauge__numbers span:nth-child(9) { left: 78%; top: 70%; color: var(--red); }
     .gauge__numbers span:nth-child(10) { left: 67%; top: 82%; color: var(--red); }
+    .gauge__numbers span:nth-child(11) { left: 52%; top: 87%; color: var(--red); }
     .gauge__needle { position: absolute; z-index: 4; width: 42%; height: 2px; background: var(--acid); box-shadow: 0 0 .5rem rgba(243,196,0,.65); transform: rotate(var(--needle-angle, -130deg)); transform-origin: 100% 50%; transition: transform 1.5s cubic-bezier(.22,.8,.35,1); }
     .gauge__needle::before { position: absolute; right: 0; width: 0; height: 0; content: ""; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-right: 12px solid var(--acid); transform: translateY(-3px); }
     .gauge__hub { position: absolute; z-index: 5; width: 1rem; height: 1rem; border: 2px solid #bec4c0; border-radius: 50%; background: #626a69; box-shadow: 0 0 0 .2rem #202728; }
@@ -149,7 +150,7 @@
     <section class="gauge-wrap reveal reveal--3" aria-label="Analoger Drehzahlmesser">
       <div class="gauge" id="gauge">
         <div class="gauge__ticks" aria-hidden="true"></div>
-        <div class="gauge__numbers" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+        <div class="gauge__numbers" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
         <div class="gauge__brand">high-revving spirit</div>
         <div class="gauge__mode">normal · launch your journey</div>
         <div class="gauge__needle" aria-hidden="true"></div>
