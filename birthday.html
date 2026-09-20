@@ -24,10 +24,10 @@
     body { min-width: 320px; min-height: 100svh; margin: 0; color: var(--ink); background: radial-gradient(circle at 50% 10%, rgba(243,196,0,.13), transparent 24rem), linear-gradient(145deg, #070808, #131716 55%, #070808); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     body::before { position: fixed; inset: 0; z-index: 0; content: ""; pointer-events: none; opacity: .12; background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(transparent, #000 20%, #000 78%, transparent); }
     main { position: relative; z-index: 1; display: flex; flex-direction: column; width: min(100%, 42rem); min-height: 100svh; margin: 0 auto; padding: max(1.5rem, env(safe-area-inset-top)) 1.25rem max(2rem, env(safe-area-inset-bottom)); }
-    .topbar { position: relative; display: flex; align-items: center; min-height: 3.55rem; }
+    .topbar { position: relative; display: flex; align-items: center; min-height: 4.5rem; }
     .mark { display: flex; align-items: center; gap: .55rem; color: var(--yellow); font-size: .68rem; font-weight: 850; letter-spacing: .18em; }
     .mark::before { width: .45rem; height: .45rem; content: ""; border-radius: 50%; background: var(--red); box-shadow: 0 0 .8rem rgba(226,45,51,.65); }
-    .crest { position: absolute; left: 50%; width: 2.35rem; transform: translateX(-50%); }
+    .crest { position: absolute; left: 50%; width: 3.15rem; transform: translateX(-50%); }
     .crest img { display: block; width: 100%; height: auto; filter: drop-shadow(0 .18rem .35rem rgba(0,0,0,.65)); }
     .card { position: relative; width: 100%; margin: auto 0; padding: clamp(1.6rem, 6vw, 3rem); overflow: hidden; border: 1px solid rgba(243,196,0,.34); background: linear-gradient(135deg, rgba(243,196,0,.11), rgba(255,255,255,.025)); box-shadow: 0 1.5rem 4rem rgba(0,0,0,.32); }
     .card::before { position: absolute; top: -1px; left: -1px; width: 7rem; height: 3px; content: ""; background: var(--yellow); }
